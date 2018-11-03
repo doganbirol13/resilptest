@@ -1,0 +1,78 @@
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+
+<h1>Leads</h1>
+
+
+<style>div{text-align:center}p.bold{font-weight: bold;}</style>
+        
+    @{if model.count}
+    <div class="row hidden-sm hidden-xs">
+        <div class="col-xs-2">
+                    <p class="bold">Firstname</p>
+            </div>
+            <div class="col-xs-2">
+                <p class="bold">Lastname</p>
+        </div>
+        <div class="col-xs-2">
+            <p class="bold">E-mail</p>
+        </div>
+        <div class="col-xs-2">
+            <p class="bold">Phone</p>
+        </div>
+        <div class="col-xs-2">
+            <p class="bold">City</p>
+        </div>
+        <div class="col-xs-2">
+            <p class="bold">Project</p>
+        </div>
+    </div>
+        <div class="row">
+            @{foreach m in model.items}
+                    <div class="row">
+                        <div class="col-xs-12 visible-xs">
+                                    <p class="bold">Firstname</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <p>@{m.firstname}</p>
+                        </div>
+                        <div class="col-xs-12 visible-xs">
+                                <p class="bold">Lastname</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <p>@{m.lastname}</p>
+                        </div>
+                        <div class="col-xs-12 visible-xs">
+                                <p class="bold">E-mail</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <p>@{m.email}</p>
+                        </div>
+                        <div class="col-xs-12 visible-xs">
+                                <p class="bold">Phone</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <p>@{m.phone}</p>
+                        </div>
+                        <div class="col-xs-12 visible-xs">
+                                <p class="bold">City</p>
+                        </div> 
+                        <div class="col-xs-12 col-sm-2">
+                            <p>@{m.city}</p>
+                        </div>
+                        <div class="col-xs-12 visible-xs">
+                                <p class="bold">Project</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <p>@{m.project}</p>
+                        </div>
+                    </div>
+            @{end}
+        </div>
+            @{view('/partials/pagination', model)}
+    @{else}
+    <br />
+    <div class="empty"><i class="fa fa-search"></i>@(No posts in database.)</div>
+    @{fi}
