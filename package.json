@@ -1,6 +1,6 @@
 {
-  "name": "CMS",
-  "description": "A simple and powerful CMS solution written in Total.js / Node.js.",
+  "name": "lptest",
+  "description": "LP Test",
   "version": "12.0.0",
   "main": "release.js",
   "repository": {
@@ -16,6 +16,6 @@
   "keywords": [
     "cms"
   ],
-  "author": "Peter Širka",
+  "author": "DB",
   "license": "MIT"
 }

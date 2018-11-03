@@ -1,6 +1,6 @@
-name                      : CMS
+name                      : lptest
 version                   : 12.0.0
-author                    : Peter Širka
+author                    : DB
 
 // Hidden super admin in the form username:password
 admin-superadmin          : admin:admin
