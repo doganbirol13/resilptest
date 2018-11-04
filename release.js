@@ -19,7 +19,7 @@ var fs = require('fs');
 
 var options = {};
 options.https = {
-   pfx: fs.readFileSync('./SSL/resitestlp.pfx'),
+   pfx: fs.readFileSync('/SSL/resitestlp.pfx'),
    passphrase: '12345'
 };
 options.port = 8000;
