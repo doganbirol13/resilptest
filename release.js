@@ -19,8 +19,8 @@ var fs = require('fs');
 
 var options = {};
 options.https = {
-   pfx: fs.readFileSync('/SSL/resitestlp.pfx'),
-   passphrase: '12345'
+   key: fs.readFileSync('/SSL/private.key'),
+   cert: fs.readFileSync('/SSL/certificate.crt')
 };
 options.port = 8000;
 
