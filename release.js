@@ -15,7 +15,7 @@
 // // require('total.js').cluster.http(5, 'release', options);
 
 
-ar fs = require('fs');
+var fs = require('fs');
 
 var options = {};
 options.https = {
