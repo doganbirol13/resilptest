@@ -10,6 +10,8 @@ exports.install = function() {
 	ROUTE('/contacts', list_contacts, ['*Contact']);
 
 	ROUTE('/design/', '=design/index');
+
+	ROUTE('/.well-known/acme-challenge/hoC6Y6AuWkCtWXO1vdc2v-LfuatZA1y11mXqF3AngEU', view_ssl_verification);
 };
 
 function save_resi_contact(req, res){
@@ -30,6 +32,11 @@ function list_contacts(){
 		self.sitemap();
 		self.$query(self.query, self.callback('contacts'));
 	}
+}
+
+function view_ssl_verification(){
+	var self = this;
+	self.plain('hoC6Y6AuWkCtWXO1vdc2v-LfuatZA1y11mXqF3AngEU.hQ-hkKb4yXGpi6NUdY57SzTd7deUrJoeaez6KWoVEpk');
 }
 
 
