@@ -6,9 +6,15 @@
 <h1>Leads</h1>
 
 
-<style>div{text-align:center}p.bold{font-weight: bold;}</style>
+<style>div{text-align:center}p.bold{font-weight: bold;}
+    ::selection {
+    background: #e30613; /* WebKit/Blink Browsers */
+    }
+    ::-moz-selection {
+    background: #e30613; /* Gecko Browsers */
+    }</style>
         
-    @{if model.count}
+    <!-- @{if model.count}
     <div class="row hidden-sm hidden-xs">
         <div class="col-xs-2">
                     <p class="bold">Firstname</p>
@@ -75,4 +81,48 @@
     @{else}
     <br />
     <div class="empty"><i class="fa fa-search"></i>@(No posts in database.)</div>
-    @{fi}
+    @{fi} -->
+
+
+    <!-- Transform model into JSON -->
+    @{json(model.items, 'itemsdata')}
+
+
+
+    <head>
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+    </head>
+
+    <div id="jsGrid"></div> 
+    <style>
+        .jsgrid-header-row .jsgrid-header-sort{background-color:#e30613; color: #ffffff;}
+        .jsgrid-selected-row>.jsgrid-cell{background:#e30613;border-color:#e30613; color: #ffffff;}
+    </style>
+    <script>
+
+            data1 = JSON.parse($('#itemsdata').text());
+            $("#jsGrid").jsGrid({
+                width: "100%",
+                height: "400px",
+         
+                inserting: false,
+                editing: false,
+                sorting: true,
+                paging: true,
+         
+                data: data1,
+         
+                fields: [
+                    { name: "firstname", align: "center",  title: "Firstname", type: "text", width: 150, validate: "required" },
+                    { name: "lastname", align: "center", title: "Lastname",  type: "text", width: 150 },
+                    { name: "email", align: "center", title: "E-mail",  type: "text", width: 200 },
+                    { name: "phone", align: "center", title: "Phone", type: "number", width: 100 },
+                    { name: "city", align: "center", title: "City",  type: "text", width: 100 },
+                    { name: "project", align: "center", title: "Project",  type: "text", width: 100 },
+                    { type: "control", visible: false}
+                ]
+            });
+        </script>
